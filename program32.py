@@ -1,5 +1,7 @@
-list1=[1,2,3,4,5,6,7,8,9,10]
-list2=[10,20,30,40,50,60,70,80,90,100]
+import math
+
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+list2 = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 list3 = list1 + list2
 print(list3)
 list4 = []
@@ -9,7 +11,8 @@ for i in range(10):
 
 print(list4)
 
-list5 = ["marzec","styczen","luty","pazdziernik","listopad","grudzien","kwiecien","maj","czerwiec","lipiec","sierpien","wrzesien"]
+list5 = ["marzec", "styczen", "luty", "pazdziernik", "listopad",
+         "grudzien", "kwiecien", "maj", "czerwiec", "lipiec", "sierpien", "wrzesien"]
 list6 = []
 
 
@@ -63,7 +66,10 @@ def miesiace(el):
     if el == 12:
         return "grudzien"
 
+
 list7 = []
+
+
 for i in range(12):
     list6.append(miesiace(list5[i]))
 list6.sort()
@@ -71,59 +77,58 @@ for i in range(12):
     list7.append(miesiace(list6[i]))
 print(list7)
 
-list8 = ["Nowak","Kowalski","Boruc"]
+list8 = ["Nowak", "Kowalski", "Boruc"]
 litera = "B"
 
 
-
-def func1(list =[], el=litera):
-    wynik = []
-    for i in range(len(list)):
-        if list[i][0] > el:
-            wynik.append(list[i])
+def func1(lista=[], el=litera):
+    wynik = [x for x in lista if x[0] > el]
     return wynik
 
 
-print(func1(list8,litera))
+print(func1(list8, litera))
 newlist = [x for x in list8 if len(x) > 6]
 print(newlist)
 
 
-def func2(list =[]):
-    for i in range(len(list)):
-        if i > 0:
-            if list[i] > list[i-1]:
+def func2(lista=[]):
+    for k in range(len(lista)):
+        if k > 0:
+            if lista[k] > lista[k-1]:
                 return False
     return True
 
 
-list9=[1,2,3,4,5]
-list10=[5,4,3,2,1]
+list9 = [1, 2, 3, 4, 5]
+list10 = [5, 4, 3, 2, 1]
 print("Przypadek 1")
 print(func2(list9))
-print("Przypadek 1")
+print("Przypadek 2")
 print(func2(list10))
 
 
-def func3(list = []):
-    newlist = [x ** 3 for x in list]
-    return newlist
+def func3(lista=[]):
+    newlist2 = [x ** 3 for x in lista]
+    return newlist2
 
 
+print("Przypadek 1")
 print(func3(list9))
-list11 = [1.2,1.5,2.9]
+print("Przypadek 2")
+print(func3(list10))
+list11 = [1.2, 1.5, 2.9]
 n1 = 1.2
 n2 = 2.1
 
 
-def func4(list = [], n1=n1, n2=n2):
-    newlist = []
-    for i in range(len(list)):
-        if list[i] == n1:
-            newlist.append(n2)
+def func4(lista=[], x=n1, y=n2):
+    newlist3 = []
+    for a in range(len(lista)):
+        if math.isclose(lista[a], x):
+            newlist3.append(y)
         else:
-            newlist.append(list[i])
-    return newlist
+            newlist3.append(lista[a])
+    return newlist3
 
 
-print(func4(list11,n1,n2))
+print(func4(list11, n1, n2))
