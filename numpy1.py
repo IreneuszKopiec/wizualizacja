@@ -102,17 +102,10 @@ print(okulary)
 print()
 print(np.sort(imiona))
 print()
-okularnicy = []
-for x in range(len(imiona)):
-    if okulary[x]:
-        okularnicy.append(imiona[x])
-print(okularnicy)
+print(imiona[okulary])
 print()
-kobiety_20_30 = []
-for x in range(len(imiona)):
-    if (wiek[x] >= 20 and wiek[x] <= 30) and plec[x] == 'K':
-        kobiety_20_30.append(imiona[x])
-print(kobiety_20_30)
+print(imiona[(20 >= wiek)*(wiek <= 30)*(plec == 'K')])
+print(imiona[(20 >= wiek) & (wiek <= 30) & (plec == 'K')])
 print()
 waga_wzrost_nieokularnicy = []
 for x in range(len(imiona)):
