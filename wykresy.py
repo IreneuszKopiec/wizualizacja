@@ -62,5 +62,11 @@ print(data3[data3 == minCena])
 print(data3[data3 == maxCena])
 print()
 
-pd.DataFrame.plot(kind='box')
+print(df)
+
+plt.boxplot(df.iloc[:, 1:].dropna().astype(float).values, vert=False)
+plt.yticks(range(1, len(df.columns)), df.columns[1:])
+plt.xlabel('Cena (PLN)')
+plt.title('Ceny jaj w różnych miastach')
+plt.tight_layout()
 plt.show()
